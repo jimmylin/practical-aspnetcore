@@ -38,6 +38,7 @@ namespace MarkdownServer
 
                 var localPath = requestPath.ToString().Replace('/', '\\').TrimStart(new char[]{'\\'}) + ".md";
                 var md = Path.Combine(env.WebRootPath, localPath);
+                Console.WriteLine(md);
                 if (!File.Exists(md))
                 {
                     context.Response.StatusCode = 404;
