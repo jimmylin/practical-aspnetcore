@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using CommonMark;
+using System.Diagnostics;
 
 namespace MarkdownServer
 {
@@ -38,7 +39,7 @@ namespace MarkdownServer
 
                 var localPath = requestPath.ToString().Replace('/', '\\').TrimStart(new char[]{'\\'}) + ".md";
                 var md = Path.Combine(env.WebRootPath, localPath);
-                Console.WriteLine(md);
+                Debug.WriteLine("md>>>"+md+"<<<");
                 if (!File.Exists(md))
                 {
                     context.Response.StatusCode = 404;
